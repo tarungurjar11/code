@@ -1,0 +1,16 @@
+//https://www.hackerrank.com/challenges/strange-grid/problem
+
+#include<stdio.h>
+
+int main()
+{
+    int r,c;
+    scanf("%d%d",&r,&c);
+    long n=0,l=2,l1=5;
+    if(r%2==1)
+         n=(r-1)*l1+(c-1)*l;
+    else
+        n=(r-2)*l1+1+(c-1)*l;
+    printf("%ld",n);
+    return 0;
+}
