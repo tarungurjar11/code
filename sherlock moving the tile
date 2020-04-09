@@ -1,0 +1,32 @@
+//https://www.hackerrank.com/challenges/sherlock-and-moving-tiles/problem
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    long L,s1,s2,q;
+    double t,e,a,b,c;
+    scanf("%ld",&L);
+    scanf("%ld",&s1);
+    scanf("%ld",&s2);
+    int Q;
+    scanf("%d",&Q);
+    while(Q>=1)
+        {
+        scanf("%ld",&q);
+        double c=abs(s1-s2);
+        double l1=L*sqrt(2);
+        double area =sqrtl(q*2);
+        double t=(l1-area)/c;
+        
+        printf("%1f\n",t);
+        
+        Q--;
+        }
+        return 0;
+}
