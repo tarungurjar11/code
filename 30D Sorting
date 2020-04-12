@@ -1,0 +1,35 @@
+//https://www.hackerrank.com/challenges/30-sorting/problem
+
+
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+
+int main() {
+    int n; 
+    scanf("%d", &n);
+    int *a = malloc(sizeof(int) * n);
+    for(int a_i = 0; a_i < n; a_i++){
+    	scanf("%d",&a[a_i]);
+    }
+    int count=0;
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                count++;
+                int temp=a[i];
+                a[i]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    printf("Array is sorted in %d swaps.\nFirst Element: %d\nLast Element: %d",count,a[0],a[n-1]);
+    return 0;
+}
