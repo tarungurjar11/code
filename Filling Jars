@@ -1,0 +1,22 @@
+//https://www.hackerrank.com/challenges/filling-jars/problem
+
+
+#include<stdio.h>
+
+int main()
+{
+int n,q;
+scanf("%d%d",&n,&q);
+
+unsigned  long long int  max=0;
+while(q--)
+{
+int a,b,k;
+scanf("%d%d%d",&a,&b,&k);
+
+max+=(unsigned long long int)k*(b-a+1);
+}
+printf("%lld",max/n);
+
+return 0;
+}
