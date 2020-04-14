@@ -1,0 +1,41 @@
+//https://www.hackerrank.com/challenges/special-multiple/problem
+
+
+#include<stdio.h>
+#include<math.h>
+unsigned long long int bit(int n)
+{
+    unsigned long long int a=0;
+    int i1=0;
+    while(n!=0)
+    {
+        if(n%2==1){
+            a=a+pow(10,i1);
+            }
+            n=n/2;
+            i1++;
+    }
+    return a;
+} 
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    unsigned long long int arr[100000];
+    for(int i=0;i<100000;i++)
+    {
+        arr[i]=9*bit(i);
+    }
+    while(t--)
+    {
+        int n;
+        scanf("%d",&n);
+        int i=1;
+        while(arr[i]%n!=0)
+        {
+            i++;
+        }
+        printf("%lld\n",arr[i]);
+    }
+    return 0;
+}
