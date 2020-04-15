@@ -1,0 +1,51 @@
+//https://www.hackerrank.com/challenges/is-fibo/problem
+
+
+#include<stdio.h>
+#include<math.h>
+long long int arr[50];
+int BSearch(long long int n)
+{
+    int l=0;
+    int h=49;
+    int mid;
+    while(l<=h)
+    {
+        mid=(l+h)/2;
+        if(arr[mid]==n)
+        {
+            return 1;
+        }
+        else if(arr[mid]>n)
+        {
+            h=mid -1;
+        }
+        else
+        {
+            l=mid+1;
+        }
+    }
+    return 0;
+}
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    int i;
+    arr[0]=0;
+    arr[1]=1;
+    for(i=2;i<50;i++)
+    {
+        arr[i]=arr[i-1]+arr[i-2];
+    } 
+    while(t--)
+    {
+        long long int n;
+        scanf("%lld",&n);
+        if(BSearch(n))
+            printf("IsFibo\n");
+        else
+            printf("IsNotFibo\n");
+    }
+    return 0;
+}
