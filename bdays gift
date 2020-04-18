@@ -1,0 +1,84 @@
+//https://www.hackerrank.com/challenges/bday-gift/problem
+
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char* readline();
+
+// Complete the solve function below.
+double solve(int balls_count, int* balls) {
+    long long int sum=0;
+for(int i=0;i<balls_count;i++)
+    sum=sum+balls[i];
+
+return sum/2.0;
+
+}
+
+int main()
+{
+    FILE* fptr = fopen(getenv("OUTPUT_PATH"), "w");
+
+    char* balls_count_endptr;
+    char* balls_count_str = readline();
+    int balls_count = strtol(balls_count_str, &balls_count_endptr, 10);
+
+    if (balls_count_endptr == balls_count_str || *balls_count_endptr != '\0') { exit(EXIT_FAILURE); }
+
+    int* balls = malloc(balls_count * sizeof(int));
+
+    for (int balls_itr = 0; balls_itr < balls_count; balls_itr++) {
+        char* balls_item_endptr;
+        char* balls_item_str = readline();
+        int balls_item = strtol(balls_item_str, &balls_item_endptr, 10);
+
+        if (balls_item_endptr == balls_item_str || *balls_item_endptr != '\0') { exit(EXIT_FAILURE); }
+
+        *(balls + balls_itr) = balls_item;
+    }
+
+    double result = solve(balls_count, balls);
+
+    fprintf(fptr, "%lf\n", result);
+
+    fclose(fptr);
+
+    return 0;
+}
+
+char* readline() {
+    size_t alloc_length = 1024;
+    size_t data_length = 0;
+    char* data = malloc(alloc_length);
+
+    while (true) {
+        char* cursor = data + data_length;
+        char* line = fgets(cursor, alloc_length - data_length, stdin);
+
+        if (!line) { break; }
+
+        data_length += strlen(cursor);
+
+        if (data_length < alloc_length - 1 || data[data_length - 1] == '\n') { break; }
+
+        size_t new_length = alloc_length << 1;
+        data = realloc(data, new_length);
+
+        if (!data) { break; }
+
+        alloc_length = new_length;
+    }
+
+    if (data[data_length - 1] == '\n') {
+        data[data_length - 1] = '\0';
+    }
+
+    data = realloc(data, data_length);
+
+    return data;
+}
