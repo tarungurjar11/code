@@ -1,0 +1,35 @@
+//https://www.hackerrank.com/challenges/harry-potter-and-the-floating-rocks/problem
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int gcd(int a,int b)
+{
+    if (a==0)
+        return b;
+    else 
+        return gcd(b%a,a);
+}
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        int x1,x2,y1,y2;
+        scanf("%d%d%d%d",&x1,&y1,&x2,&y2);
+        double x11=x1,x22=x2,y11=y1,y22=y2;
+    int dx=abs(x1-x2);
+    int dy=abs(y1-y2);
+    int min=dx>dy?dy:dx;
+    int max=dx<dy?dy:dx;
+    int count=0;
+    if(min==0 &&max==0)
+            printf("%d\n",0);
+    else if(min==0)
+        printf("%d\n",max-1);
+    else
+        printf("%d\n",gcd(min,max)-1);
+    }
+    return 0;
+}
