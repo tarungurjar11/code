@@ -1,0 +1,45 @@
+//https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays/0/
+
+
+#include <stdio.h>
+
+int main() {
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int x,y;
+	    scanf("%d%d",&x,&y);
+	    int a1[x],a2[y];
+	    for(int i=0;i<x;i++)
+	        scanf("%d",&a1[i]);
+	    for(int i=0;i<y;i++)
+	        scanf("%d",&a2[i]);
+	    int i=0,j=0;;
+	    while(i<x && j<y)
+	    {
+	        if(a1[i]<a2[j])
+	        {
+	            printf("%d ",a1[i]);
+	            i++;
+	        }
+	        else
+	        {
+	            printf("%d ",a2[j]);
+	            j++;
+	        }
+	    }
+	    while(i<x)
+	    {
+	            printf("%d ",a1[i]);
+	            i++;
+	     }
+	     while(j<y)
+	     {
+	            printf("%d ",a2[j]);
+	            j++;
+	     }
+	     printf("\n");
+	}
+	return 0;
+}
