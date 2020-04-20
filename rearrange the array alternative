@@ -1,0 +1,30 @@
+//https://practice.geeksforgeeks.org/problems/-rearrange-array-alternately/0/
+
+
+#include <stdio.h>
+
+int main() {
+    int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n;
+	    scanf("%d",&n);
+	    int a1[n];
+	    for(int i=0;i<n;i++)
+	    {
+	    if(i<n/2)
+	        scanf("%d",&a1[i*2+1]);
+	    else
+	        scanf("%d",&a1[(n-1-i)*2]);
+	        
+	    }
+	 //  int min,max,j;
+	    for(int i=0;i<n;i++)
+	    {
+	        printf("%d ",a1[i]);
+	    }
+	    printf("\n");
+	}
+	return 0;
+}
