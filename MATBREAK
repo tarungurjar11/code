@@ -1,0 +1,37 @@
+//https://www.codechef.com/problems/MATBREAK
+
+
+#include<stdio.h>
+#include<stdlib.h>
+int po(int x, int n)
+{
+    int result = 1;
+    while (n) {
+        if (n & 1)
+            result =(long long int)result * x % 1000000007;
+        n = n / 2;
+        x =(long long int) x * x % 1000000007;
+    }
+    return result;
+}
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        int n,a;
+        scanf("%d %d",&n,&a);
+        int pi,sum=0;
+        for(int i=1;i<=n;i++)
+        {
+            int k=2*i-1;
+            pi=(po(a,k))%1000000007;
+           // printf("%d\n",pi);
+            sum=((long long int)sum+pi)%1000000007;
+            a=((long long int)a*pi)%1000000007;
+        }
+        printf("%d\n",sum);
+    }
+    return 0;
+}
