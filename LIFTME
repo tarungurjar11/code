@@ -1,0 +1,28 @@
+//https://www.codechef.com/problems/LIFTME
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int main()
+{
+    int t;
+    scanf("%d",&t);
+    while(t--)
+    {
+        int n,q;
+        scanf("%d %d",&n,&q);
+        long long int sum=0;
+        int prev=0;
+        int q1,q2,x;
+        while(q--)
+        {
+            scanf("%d %d",&q1,&q2);
+            sum=sum+(abs(prev-q1));
+            sum=sum+(abs(q1-q2));
+            prev=q2;
+        }
+        printf("%lld\n",sum);
+    }
+    return 0;
+}
