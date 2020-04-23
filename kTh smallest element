@@ -1,0 +1,34 @@
+//https://practice.geeksforgeeks.org/problems/kth-smallest-element/0
+
+
+
+#include <stdio.h>
+
+int main() {
+	int t;
+	scanf("%d",&t);
+	while(t--)
+	{
+	    int n,x,found;
+	    scanf("%d",&n);
+	    int arr[100001]={0};
+	    for(int i=0;i<n;i++)
+	    {
+	        scanf("%d",&x);
+	        arr[x]++;
+	    }
+	    int q;
+	    scanf("%d",&q);
+	    for(int i=0;i<=100000 ;i++)
+	    {
+	        if(arr[i]>=1)
+	            q=q-arr[i];
+	        if(q<=0)
+	            {found=i;
+	                break;
+	            }
+	    }
+	    printf("%d\n",found);
+	}
+	return 0;
+}
