@@ -1,0 +1,48 @@
+//https://practice.geeksforgeeks.org/problems/factorials-of-large-numbers/0
+
+
+#include <iostream>
+using namespace std;
+#include <stdio.h>
+int mult(int *arr,int k,int n);
+void factorial(int n)
+{
+    int arr[20000]={0};
+    arr[0]=1;
+    int k=1;
+    for(int i=2;i<=n;i++)
+    {
+        k=mult(arr,k,i);
+    }
+    for(int i=k-1;i>=0;i--)
+        cout<<arr[i];
+}
+int mult(int *arr,int k,int n)
+{
+    int carry=0;
+    int m;
+    for(int i=0;i<k;i++)
+    {
+        m=(arr[i]*n)+carry;
+        arr[i]=m%10;
+        carry=m/10;
+    }
+    while(carry!=0)
+    {
+        arr[k++]=carry%10;
+        carry=carry/10;
+    }
+    return k;
+}
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    factorial(n);
+	    cout<<endl;
+	}
+	return 0;
+}
