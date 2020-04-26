@@ -1,0 +1,48 @@
+//https://www.codechef.com/LTIME83B/problems/FFL
+
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,s;
+        cin>>n>>s;
+        int arr1[n],arr2[n];
+        for(int i=0;i<n;i++)
+        {
+            cin>>arr1[i];
+
+        }
+        for(int i=0;i<n;i++)
+        {
+            cin>>arr2[i];
+        }
+        int min1=100,min2=100;
+        for(int i=0;i<n;i++)
+        {
+            if(arr2[i]==0)
+            {
+                if(min1>arr1[i])
+                    min1=arr1[i];
+            }
+            else
+            {
+                if(min2>arr1[i])
+                    min2=arr1[i];
+            }
+        }
+        if((100-s)>=(min1+min2))
+        {
+            cout<<"yes\n";
+        }
+        else
+            cout<<"no\n";
+    }
+    return 0;
+}
