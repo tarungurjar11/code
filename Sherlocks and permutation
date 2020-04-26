@@ -1,0 +1,57 @@
+//https://www.hackerrank.com/challenges/sherlock-and-permutations/problem
+
+
+
+#include<iostream>
+
+using namespace std;
+long long int exp(long long int a,long long int b,long long int p)
+{
+    long long int result=1;
+    while(b!=0)
+    {
+        if(b%2==1)
+            result=(result*a)%p;
+        b=b/2;
+        a=(a*a)%p;
+    }
+    return result;
+}
+long long int anss(long long int a,long long int b,long long int p)
+{
+    long long int result=1;
+    result=((a%p)*(exp(b,p-2,p)%p))%p;
+    return result;
+}
+long long int factorial(int n,int p)
+{
+    long long int result=1;
+    for(int i=2;i<=n;i++)
+    {
+        result=(result*i)%p;
+    }
+    return result ;
+}
+long long int nCr(int n,int m,int p)
+{
+
+    long long int a=factorial(n,p);
+    long long int b=((long long int)(factorial(m,p)%p)*(factorial(n-m,p)%p))%p;
+    return anss(a,b,p);
+}
+int main()
+{
+    int t;
+    cin>>t;
+    int p=1000000007;
+    while(t--)
+    {
+        int n,m;
+        cin>>n>>m;
+        n=n+m-1;
+        m=m-1;
+        long long int x=nCr(n,m,p);
+        cout<<x<<endl;
+    }
+    return 0;
+}
